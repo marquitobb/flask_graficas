@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content  %}
+
+<div class="card text-center">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Generador</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Grafica</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+        
+
+            <form action="/grafica" method="post" enctype="multipart/form-data">
+                <!--<input type="text" name="columna" placeholder="ingresa la columna">-->
+                <h2>selecciona la columna</h2>
+                {% for columna in columnas.columnas %}
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="columna" id="exampleRadios1" value="{{ columna }}" checked required>
+                  <label class="form-check-label" for="exampleRadios1" >
+                    {{ columna }}
+                  </label>
+                </div>
+                {% endfor %}
+
+                <h3>escoge el tipo</h3>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tipo" id="inlineRadio1" value="puntos" required>
+                  <label class="form-check-label" for="inlineRadio1">puntos</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tipo" id="inlineRadio2" value="lineas" required>
+                  <label class="form-check-label" for="inlineRadio2">lineas</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tipo" id="inlineRadio3" value="pastel" required>
+                  <label class="form-check-label" for="inlineRadio3">pastel</label>
+                </div>
+                <br>
+                <!--<input type="text" name="tipo" placeholder="ingresa el tipo de columna">-->
+                <input type="text" value="{{ columnas.filename }}" name="filename" hidden>
+                <input type="submit" value="grafica" class="btn btn-success">
+            </form>
+        </div>
+      </div>
+
+
+
+{% endblock %}

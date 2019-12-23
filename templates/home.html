@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content  %}
+
+<div class="card text-center">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Generador</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Grafica</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+                <h1>ingresa tu archivo csv</h1>
+                <form action="/columnas" method="post" enctype="multipart/form-data"<>
+                    <input type="file" name="file">
+                    <input type="submit" value="Cargar">
+                </form>
+        </div>
+      </div>
+      <br>
+      <center>
+        <blockquote>
+          <p>elaborado por: </p>
+          <footer>
+            <cite>Marco Cobian</cite>
+          </footer>
+        </blockquote>
+      </center>
+
+
+
+{% endblock %}
